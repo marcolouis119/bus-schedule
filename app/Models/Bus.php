@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bus extends Model
-{
-    use HasFactory;
-
-    public function routes()
-    {
-        return $this->hasMany(Route::class); // Связь один-ко-многим с маршрутами
+class Bus extends Model {
+    protected $table = 'buses';
+    
+    public function routes() {
+        return $this->hasMany(Route::class);
     }
 }

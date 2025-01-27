@@ -11,6 +11,8 @@ services:
       - .:/var/www
     networks:
       - laravel
+    ports:
+      - "8000:80"  # Проброс порта 8000 на локальной машине к порту 80 в контейнере
 
   db:
     image: postgres:latest
@@ -21,7 +23,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"  # Тут номер порта для доступа к базе данных
+      - "5432:5432"  # Номер порта для доступа к базе данных
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:

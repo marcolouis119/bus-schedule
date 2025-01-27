@@ -2,20 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Route extends Model
-{
-    use HasFactory;
-
-    public function bus()
-    {
-        return $this->belongsTo(Bus::class); // Связь многие-к-одному с автобусом
+class Route extends Model {
+    protected $table = 'routes';
+    
+    public function bus() {
+        return $this->belongsTo(Bus::class);
     }
 
-    public function stops()
-    {
-        return $this->belongsToMany(Stop::class); // Связь многие-ко-многим с остановками
+    public function routeStops() {
+        return $this->hasMany(RouteStop::class);
     }
 }

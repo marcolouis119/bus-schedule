@@ -22,6 +22,6 @@ COPY . .
 RUN composer install --no-interaction --prefer-dist
 
 # Тут можно выбрать порт, который будет слушаться контейнером 
-EXPOSE 9000
+EXPOSE 8000
 
 CMD ["php-fpm"]
